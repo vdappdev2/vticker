@@ -111,7 +111,7 @@ export default function PairsClient({ pairs, poolNames }: PairsClientProps) {
       {/* No Results Message */}
       {filteredAndSortedPairs.length === 0 && (
         <div className="text-center py-12 text-gray-400">
-          No pairs found matching "{searchTerm}"
+          No pairs found matching &quot;{searchTerm}&quot;
         </div>
       )}
     </div>

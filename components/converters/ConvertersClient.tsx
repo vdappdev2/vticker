@@ -109,7 +109,7 @@ export default function ConvertersClient({ converters }: ConvertersClientProps) 
       {/* No Results Message */}
       {filteredAndSortedConverters.length === 0 && (
         <div className="text-center py-12 text-gray-400">
-          No converters found matching "{searchTerm}"
+          No converters found matching &quot;{searchTerm}&quot;
         </div>
       )}
     </div>

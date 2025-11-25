@@ -1,0 +1,23 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Raise pull requests for version updates
+    open-pull-requests-limit: 10
+    # Labels to apply to pull requests
+    labels:
+      - "dependencies"
+      - "automated"
+    # Allow both direct and indirect updates
+    versioning-strategy: auto
+    # Group updates by dependency type
+    groups:
+      # Group all production dependencies
+      production-dependencies:
+        dependency-type: "production"
+      # Group all development dependencies
+      development-dependencies:
+        dependency-type: "development"

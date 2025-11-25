@@ -3,13 +3,13 @@ import { fetchConverter, fetchTradingPairs } from '@/lib/api';
 import ConverterDetailView from '@/components/converters/ConverterDetailView';
 
 interface ConverterPageProps {
-  params: {
+  params: Promise<{
     name: string;
-  };
+  }>;
 }
 
 export default async function ConverterPage({ params }: ConverterPageProps) {
-  const { name } = params;
+  const { name } = await params;
 
   // Fetch converter data
   const converter = await fetchConverter(name);

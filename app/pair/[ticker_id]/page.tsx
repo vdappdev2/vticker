@@ -3,13 +3,13 @@ import { fetchTradingPair, fetchConverters } from '@/lib/api';
 import PairDetailView from '@/components/pairs/PairDetailView';
 
 interface PairPageProps {
-  params: {
+  params: Promise<{
     ticker_id: string;
-  };
+  }>;
 }
 
 export default async function PairPage({ params }: PairPageProps) {
-  const { ticker_id } = params;
+  const { ticker_id } = await params;
 
   // Fetch pair data
   const pair = await fetchTradingPair(ticker_id);
