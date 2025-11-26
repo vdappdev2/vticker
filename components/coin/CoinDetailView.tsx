@@ -56,7 +56,7 @@ export default function CoinDetailView({
         <Card>
           <div className="text-gray-400 text-sm mb-2">24h Volume</div>
           <div className="text-2xl font-bold text-[var(--primary)]">
-            ${formatCompact(totalVolume24h.toString())}
+            TBD
           </div>
           <div className="text-xs text-gray-500 mt-1">
             Across {vrscPairs.length} pairs
@@ -152,13 +152,13 @@ export default function CoinDetailView({
                       </Link>
                     </td>
                     <td className="py-4 px-4 text-right price-mono">
-                      <div className="font-medium">{formatCurrency(pair.last_price, 6)}</div>
+                      <div className="font-medium">{formatCurrency(pair.last_price, 8)}</div>
                     </td>
                     <td className="py-4 px-4 text-right">
                       <Badge value={change24h} />
                     </td>
                     <td className="py-4 px-4 text-right">
-                      <div className="font-medium">${formatCompact(pair.target_volume)}</div>
+                      <div className="font-medium">{formatCompact(pair.target_volume)} {pair.target_currency}</div>
                     </td>
                     <td className="py-4 px-4 text-right">
                       <div className="font-medium">${formatCompact(pair.liquidity_in_usd)}</div>

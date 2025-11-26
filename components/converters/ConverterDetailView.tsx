@@ -140,7 +140,7 @@ export default function ConverterDetailView({ converter, relatedPairs }: Convert
               >
                 <div className="font-medium">{pair.ticker_id}</div>
                 <div className="text-sm text-gray-400 mt-1">
-                  ${formatCompact(pair.target_volume)} vol
+                  Vol: {formatCompact(pair.target_volume)} {pair.target_currency}
                 </div>
               </Link>
             ))}

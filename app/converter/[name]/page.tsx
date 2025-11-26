@@ -10,9 +10,10 @@ interface ConverterPageProps {
 
 export default async function ConverterPage({ params }: ConverterPageProps) {
   const { name } = await params;
+  const decodedName = decodeURIComponent(name);
 
   // Fetch converter data
-  const converter = await fetchConverter(name);
+  const converter = await fetchConverter(decodedName);
 
   if (!converter) {
     notFound();

@@ -50,10 +50,28 @@ export interface VerusSupply {
   };
 }
 
+// Stats API Types
+export interface StatsResponse {
+  summary: {
+    total_trading_pairs: number;
+    total_24h_volume_usd: number;
+  };
+  price_data: Record<string, number>;
+  trading_pairs: Array<{
+    pair_name: string;
+    last_price: number;
+    base_volume: number;
+    volume_24h_usd: number;
+    high_24h: number;
+    low_24h: number;
+    pool_id: string;
+  }>;
+}
+
 // Market Stats Types
 export interface MarketStats {
   total_pairs: number;
-  total_volume_24h: string;
+  total_liquidity: string;
   active_converters: number;
   vrsc_price: string;
 }

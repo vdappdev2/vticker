@@ -105,7 +105,7 @@ export default function PairTable({ pairs, limit, showLiquidity = true, poolName
                 </td>
                 <td className="py-4 px-4 text-right price-mono">
                   <div className="font-medium">
-                    {formatCurrency(pair.last_price, 6)}
+                    {formatCurrency(pair.last_price, 8)}
                   </div>
                 </td>
                 <td className="py-4 px-4 text-right">
@@ -113,7 +113,7 @@ export default function PairTable({ pairs, limit, showLiquidity = true, poolName
                 </td>
                 <td className="py-4 px-4 text-right">
                   <div className="font-medium">
-                    ${formatCompact(pair.target_volume)}
+                    {formatCompact(pair.target_volume)} {pair.target_currency}
                   </div>
                   <div className="text-xs text-gray-500 mt-0.5">
                     {formatCompact(pair.base_volume)} {pair.base_currency}

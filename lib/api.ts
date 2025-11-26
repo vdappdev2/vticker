@@ -71,11 +71,15 @@ export async function fetchMarketStats() {
   const pairs = await fetchTradingPairs();
   const { active_converters } = await fetchConverters();
 
-  // Calculate total 24h volume
-  const totalVolume = pairs.reduce((sum, pair) => {
-    const volume = parseFloat(pair.target_volume);
-    return sum + (isNaN(volume) ? 0 : volume);
-  }, 0);
+  // Calculate total liquidity (count each pool only once)
+  const poolLiquidityMap = new Map<string, number>();
+  pairs.forEach(pair => {
+    const liquidity = parseFloat(pair.liquidity_in_usd);
+    if (!isNaN(liquidity) && !poolLiquidityMap.has(pair.pool_id)) {
+      poolLiquidityMap.set(pair.pool_id, liquidity);
+    }
+  });
+  const totalLiquidity = Array.from(poolLiquidityMap.values()).reduce((sum, liq) => sum + liq, 0);
 
   // Find VRSC price (from VRSC-DAI or VRSC-USDC pair)
   const vrscPair = pairs.find(
@@ -85,7 +89,7 @@ export async function fetchMarketStats() {
 
   return {
     total_pairs: pairs.length,
-    total_volume_24h: totalVolume.toString(),
+    total_liquidity: totalLiquidity.toString(),
     active_converters: active_converters.length,
     vrsc_price: vrscPrice,
   };

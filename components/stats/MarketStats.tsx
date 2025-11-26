@@ -23,13 +23,13 @@ export default function MarketStats({ stats }: MarketStatsProps) {
         <div className="text-xs text-gray-500">Active pairs</div>
       </Card>
 
-      {/* 24h Volume */}
+      {/* Total Liquidity */}
       <Card>
-        <div className="text-gray-400 text-sm mb-2">24h Volume</div>
+        <div className="text-gray-400 text-sm mb-2">Total Liquidity</div>
         <div className="text-3xl font-bold text-white mb-1">
-          ${formatCompact(stats.total_volume_24h)}
+          ${formatCompact(stats.total_liquidity)}
         </div>
-        <div className="text-xs text-gray-500">Total traded</div>
+        <div className="text-xs text-gray-500">Combined reserves value</div>
       </Card>
 
       {/* Active Converters */}
