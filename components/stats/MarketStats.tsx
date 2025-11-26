@@ -4,7 +4,7 @@ import Card from '../ui/Card';
 interface MarketStatsProps {
   stats: {
     total_pairs: number;
-    total_volume_24h: string;
+    total_liquidity: string;
     active_converters: number;
     vrsc_price: string;
   };
