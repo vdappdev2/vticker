@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.10",
-    "next": "^15.0.3",
+    "next": "^15.5.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^3.5.0"
